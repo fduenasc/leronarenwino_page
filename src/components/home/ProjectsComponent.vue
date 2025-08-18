@@ -2,6 +2,10 @@
 import { useDataStore } from "@/stores/index.js";
 
 const store = useDataStore();
+
+function redirectTo(url) {
+  window.open(url, "_blank");
+}
 </script>
 
 <template>
