@@ -26,6 +26,9 @@ import {
   faNpm,
   faAws,
   faGoogle,
+  faMicrosoft,
+  faDocker,
+  faSquareGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faMoon,
@@ -69,6 +72,9 @@ library.add(
   faEnvelope,
   faAws,
   faGoogle,
+  faMicrosoft,
+  faDocker,
+  faSquareGithub
 );
 
 const app = createApp(App);

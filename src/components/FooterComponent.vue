@@ -33,7 +33,7 @@
             target="_blank"
             href="https://github.com/LeronArenwino"
             ><font-awesome-icon
-              icon="fa-brands fa-github"
+              icon="fa-brands fa-square-github"
               class="w-8 h-8 fill-current text-black dark:text-white mx-2"
           /></a>
         </li>
