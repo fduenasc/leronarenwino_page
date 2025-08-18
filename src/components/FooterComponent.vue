@@ -37,19 +37,9 @@
               class="w-8 h-8 fill-current text-black dark:text-white mx-2"
           /></a>
         </li>
-        <li class="flex justify-center items-center">
-          <a
-            rel="noopener"
-            target="_blank"
-            href="https://twitter.com/LeronArenwino"
-            ><font-awesome-icon
-              icon="fa-brands fa-twitter"
-              class="w-8 h-8 fill-current text-black dark:text-white mx-2"
-          /></a>
-        </li>
       </ul>
       <p class="text-sm text-gray-900 sm:text-center dark:text-gray-300 py-4">
-        2018-2023
+        2018 - 2025
         <a class="hover:underline"
           ><router-link to="/">Francisco Dueñas</router-link></a
         >.

@@ -13,11 +13,19 @@
         >😉
       </h1>
       <p
-        class="mb-8 text-lg font-thin text-black lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
+        class="mb-8 text-lg text-black lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
       >
-        I'm a Systems Engineer from National University of Colombia interested
-        in development of applications. I have worked on different projects,
-        developed mainly with Java, Python, Javascript and C.
+        I'm a Systems & Computer Engineer from the National University of
+        Colombia, specialized in <strong>Cloud and Backend Development</strong>.
+        I have over 4 years of experience building
+        <strong>scalable and secure applications</strong> with
+        <strong>Java, Spring Boot, and Spring WebFlux</strong>, as well as
+        working with
+        <strong>AWS, Azure, and microservices architectures</strong>. Passionate
+        about
+        <strong
+          >reactive systems, clean architecture, and cloud technologies</strong
+        >, I enjoy creating solutions that drive efficiency and innovation.
       </p>
     </div>
   </section>
