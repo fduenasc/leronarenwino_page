@@ -5,7 +5,7 @@
         ><a
           class="flex justify-center items-center text-2xl font-semibold text-black dark:text-white"
         >
-          LeronArenwino
+          Francisco Dueñas
         </a></router-link
       >
       <p class="my-4 text-xl text-gray-800 dark:text-gray-200">
