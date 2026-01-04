@@ -39,7 +39,7 @@
         </li>
       </ul>
       <p class="text-sm text-gray-900 sm:text-center dark:text-gray-300 py-4">
-        2018 - 2025
+        2018 - 2026
         <a class="hover:underline"
           ><router-link to="/">Francisco Dueñas</router-link></a
         >.
