@@ -21,7 +21,7 @@
           <a
             rel="noopener"
             target="_blank"
-            href="https://www.linkedin.com/in/leronarenwino/"
+            href="https://www.linkedin.com/in/fduenasc/"
             ><font-awesome-icon
               icon="fa-brands fa-linkedin"
               class="w-8 h-8 fill-current text-black dark:text-white mx-2"
@@ -31,7 +31,7 @@
           <a
             rel="noopener"
             target="_blank"
-            href="https://github.com/LeronArenwino"
+            href="https://github.com/fduenasc"
             ><font-awesome-icon
               icon="fa-brands fa-square-github"
               class="w-8 h-8 fill-current text-black dark:text-white mx-2"
