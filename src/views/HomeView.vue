@@ -7,7 +7,7 @@ import SkillsComponent from "../components/home/SkillsComponent.vue";
 <template>
   <main class="bg-transparent mx-0">
     <AboutComponent></AboutComponent>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="block w-full h-auto" style="display: block; margin: 0; padding: 0;">
       <path
         class="fill-emerald-500 dark:fill-gray-900"
         fill-opacity="1"
@@ -15,7 +15,7 @@ import SkillsComponent from "../components/home/SkillsComponent.vue";
       ></path>
     </svg>
     <ProjectsComponent />
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="block w-full h-auto" style="display: block; margin: 0; padding: 0; vertical-align: bottom; margin-bottom: -1px;">
       <path
         class="fill-emerald-500 dark:fill-gray-900"
         fill-opacity="1"
