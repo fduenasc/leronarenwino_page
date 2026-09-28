@@ -1,35 +1,64 @@
-# Francisco Dueñas - Portfolio Page
+# Francisco Dueñas — Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+Personal portfolio for **Francisco Dueñas**, Systems & Computer Engineer (Universidad Nacional de Colombia) and **Associate Consultant at Red Hat**, focused on cloud-native and backend development.
 
-## Recommended IDE Setup
+## Profile
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Cloud-Native & Backend Developer specializing in designing and building scalable, secure systems with **Java, Quarkus, and Spring**. Experience with **microservices**, **reactive systems**, **clean architecture**, and cloud platforms (**AWS**, **Azure**, **Kubernetes / OpenShift**).
 
-## Customize configuration
+### Knowledge
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+| Area | Technologies |
+| --- | --- |
+| Languages | Java, Python, JavaScript |
+| Backend / frameworks | Quarkus, Spring, Django |
+| Architecture | Microservices, reactive systems, clean architecture, cloud-native integration |
+| Cloud & platforms | AWS, Azure, Kubernetes, OpenShift |
+| Tools & infrastructure | Docker, Redis, RabbitMQ, Git |
 
-## Project Setup
+### Certifications (to date)
+
+- **AWS Certified Cloud Practitioner**
+- **Red Hat Certified Developer in Cloud-native Applications**
+- **Red Hat Certified Specialist in Cloud-native Integration**
+
+### Education & role
+
+- Systems & Computer Engineer — Universidad Nacional de Colombia
+- Associate Consultant — Red Hat
+- 4+ years building production backend and cloud solutions
+
+## Stack (this site)
+
+- Vue 3 + Vue Router + Pinia
+- Vite
+- Tailwind CSS + Flowbite
+- Firebase Firestore (projects & skills)
+
+## Project setup
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Production build
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint
 
 ```sh
 npm run lint
 ```
+
+## Recommended IDE
+
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (disable Vetur).
