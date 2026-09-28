@@ -1,21 +1,20 @@
 <script setup>
+import { onMounted } from "vue";
 import { RouterView } from "vue-router";
 import HeaderComponent from "@/components/HeaderComponent.vue";
-import FooterComponent from "./components/FooterComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 import { useDataStore } from "@/stores/index.js";
-
-// API URL
-const API = "https://api.escuelajs.co/api/v1";
 
 const store = useDataStore();
 
-store.getProjects();
-store.getSkills();
-store.getProducts(API);
+onMounted(() => {
+  store.getProjects();
+  store.getSkills();
+});
 </script>
 
 <template>
-  <HeaderComponent></HeaderComponent>
+  <HeaderComponent />
   <RouterView />
-  <FooterComponent></FooterComponent>
+  <FooterComponent />
 </template>
