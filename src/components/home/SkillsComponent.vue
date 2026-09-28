@@ -5,19 +5,21 @@ const store = useDataStore();
 </script>
 
 <template>
-  <section id="skills" class="bg-emerald-500 dark:bg-gray-900 py-16">
+  <section
+    id="skills"
+    aria-labelledby="skills-heading"
+    class="bg-emerald-500 py-16 dark:bg-gray-900"
+  >
     <div class="py-16 px-4 mx-auto max-w-screen-xl lg:px-6">
-      <div class="mx-auto max-w-screen-md text-center mb-12 lg:mb-16">
-        <h1
-          class="my-4 text-4xl leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+      <div class="mx-auto mb-12 max-w-screen-md text-center lg:mb-16">
+        <h2
+          id="skills-heading"
+          class="my-4 text-4xl font-medium leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
         >
-          <span
-            class="text-transparent font-medium bg-clip-text bg-black dark:bg-white"
-            >Skills</span
-          >
-        </h1>
+          Skills
+        </h2>
         <p class="mb-5 font-light text-black sm:text-xl dark:text-gray-400">
-          Technologies and tools I work with
+          Languages, frameworks, and cloud tools I use day to day.
         </p>
       </div>
       
