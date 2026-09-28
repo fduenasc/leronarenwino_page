@@ -6,20 +6,18 @@
       <div
         class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
       >
-        <!-- Botón de Inicio -->
-        <button
-          type="button"
-          class="lg:order-1 w-10 h-10 text-black bg-emerald-300 hover:bg-emerald-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 rounded-lg text-sm p-2.5"
+        <router-link
+          to="/"
+          class="order-1 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-300 p-2.5 text-sm text-black hover:bg-emerald-200 lg:order-1 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+          aria-label="Home"
         >
-          <router-link to="/">
-            <font-awesome-icon
-              class="dark:text-white w-3 h-3"
-              icon="fa-solid fa-house"
-              beat
-              style="--fa-animation-duration: 5s; --fa-beat-scale: 1.5"
-            />
-          </router-link>
-        </button>
+          <font-awesome-icon
+            class="h-3 w-3 dark:text-white"
+            icon="fa-solid fa-house"
+            beat
+            style="--fa-animation-duration: 5s; --fa-beat-scale: 1.5"
+          />
+        </router-link>
 
         <!-- Botón de cambio de tema -->
         <div class="flex items-center lg:order-3">
@@ -48,7 +46,7 @@
 
         <!-- Menú de navegación para pantallas pequeñas -->
         <div
-          v-show="$route.path == '/'"
+          v-show="$route.path === '/'"
           class="flex items-center lg:hidden lg:order-3"
         >
           <button
@@ -69,7 +67,7 @@
 
         <!-- Menú de navegación para pantallas grandes -->
         <div
-          v-show="$route.path == '/'"
+          v-show="$route.path === '/'"
           class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-2"
           id="navbar-default"
         >
@@ -77,26 +75,32 @@
             class="flex flex-col item font-medium lg:flex-row lg:space-x-8 lg:mt-0"
           >
             <li>
-              <a
-                class="block py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              <button
+                type="button"
+                class="block w-full py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 aria-current="page"
-                href="#app"
-                >About</a
+                @click="scrollToSection('about')"
               >
+                About
+              </button>
             </li>
             <li>
-              <a
-                class="block py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                href="#projects"
-                >Projects</a
+              <button
+                type="button"
+                class="block w-full py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                @click="scrollToSection('projects')"
               >
+                Projects
+              </button>
             </li>
             <li>
-              <a
-                class="block py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                href="#skills"
-                >Skills</a
+              <button
+                type="button"
+                class="block w-full py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                @click="scrollToSection('skills')"
               >
+                Skills
+              </button>
             </li>
           </ul>
         </div>
@@ -106,8 +110,10 @@
 </template>
 
 <script>
+import { scrollToSection } from "@/utils/scrollToSection.js";
+
 export default {
-  name: "App",
+  name: "HeaderComponent",
   data() {
     return {
       isDarkTheme:
@@ -117,6 +123,7 @@ export default {
     };
   },
   methods: {
+    scrollToSection,
     toggleTheme() {
       this.isDarkTheme = !this.isDarkTheme;
       document.documentElement.classList.toggle("dark", this.isDarkTheme);
