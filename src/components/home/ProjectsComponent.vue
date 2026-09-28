@@ -9,19 +9,22 @@ function redirectTo(url) {
 </script>
 
 <template>
-  <section id="projects" class="bg-transparent dark:bg-transparent py-16">
+  <section
+    id="projects"
+    aria-labelledby="projects-heading"
+    class="bg-transparent py-16 dark:bg-transparent"
+  >
     <div class="py-16 px-4 mx-auto max-w-screen-xl lg:px-6">
-      <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-        <h1
-          class="my-4 text-4xl leading-none text-black md:text-5xl lg:text-6xl dark:text-white"
+      <div class="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">
+        <h2
+          id="projects-heading"
+          class="my-4 text-4xl font-medium leading-none text-black md:text-5xl lg:text-6xl dark:text-white"
         >
-          <span
-            class="font-mono text-transparent font-medium bg-clip-text bg-black dark:bg-white"
-            >Projects
-          </span>
-        </h1>
+          Projects
+        </h2>
         <p class="font-light text-black sm:text-xl dark:text-gray-400">
-          Projects I have worked on!
+          Selected work across backend services, cloud platforms, and full-stack
+          apps.
         </p>
       </div>
       <div
@@ -68,7 +71,7 @@ function redirectTo(url) {
               >
                 <template
                   v-if="
-                    project.link_github != '' &&
+                    project.link_github !== '' &&
                     project.hasOwnProperty('link_github')
                   "
                   ><button
@@ -87,7 +90,7 @@ function redirectTo(url) {
                 </template>
                 <template
                   v-if="
-                    project.link_website != '' &&
+                    project.link_website !== '' &&
                     project.hasOwnProperty('link_website')
                   "
                 >
