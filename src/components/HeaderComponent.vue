@@ -1,105 +1,93 @@
 <template>
-  <header class="sticky top-0 z-50">
+  <header class="sticky top-0 z-50 border-b border-emerald-400/40 dark:border-gray-700">
     <nav
-      class="bg-emerald-300 border-gray-900 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+      class="bg-emerald-300/95 px-4 py-3 backdrop-blur-sm dark:bg-gray-800/95 lg:px-6"
+      aria-label="Primary"
     >
       <div
-        class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+        class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-3"
       >
         <router-link
           to="/"
-          class="order-1 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-300 p-2.5 text-sm text-black hover:bg-emerald-200 lg:order-1 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-          aria-label="Home"
+          class="min-w-0 rounded-md px-1 py-0.5 text-left transition-colors"
+          :class="
+            isHome && activeSection === 'about'
+              ? 'text-emerald-900 dark:text-emerald-300'
+              : 'text-black hover:opacity-80 dark:text-white'
+          "
+          :aria-current="isHome && activeSection === 'about' ? 'location' : undefined"
+          @click="goToTop"
         >
-          <font-awesome-icon
-            class="h-3 w-3 dark:text-white"
-            icon="fa-solid fa-house"
-            beat
-            style="--fa-animation-duration: 5s; --fa-beat-scale: 1.5"
-          />
+          <span class="block truncate text-sm font-semibold leading-tight sm:text-base">
+            Francisco Dueñas
+          </span>
+          <span
+            class="hidden truncate text-xs text-emerald-900/80 sm:block dark:text-gray-400"
+          >
+            Cloud-native &amp; Backend
+          </span>
         </router-link>
 
-        <!-- Botón de cambio de tema -->
-        <div class="flex items-center lg:order-3">
+        <div class="flex items-center gap-2">
           <button
             id="theme-toggle"
             type="button"
-            class="w-10 h-10 text-black bg-emerald-300 hover:bg-emerald-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 rounded-lg p-2.5"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-black hover:bg-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-500"
+            :aria-label="isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'"
             @click="toggleTheme"
           >
             <font-awesome-icon
-              v-if="isDarkTheme"
-              icon="fa-solid fa-sun"
-              class="fill-current"
-              beat
-              style="--fa-animation-duration: 5s; --fa-beat-scale: 1.5"
-            />
-            <font-awesome-icon
-              v-else
-              icon="fa-solid fa-moon"
-              class="fill-current"
-              beat
-              style="--fa-animation-duration: 5s; --fa-beat-scale: 1.5"
+              :icon="isDarkTheme ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"
+              class="h-4 w-4"
             />
           </button>
-        </div>
 
-        <!-- Menú de navegación para pantallas pequeñas -->
-        <div
-          v-show="$route.path === '/'"
-          class="flex items-center lg:hidden lg:order-3"
-        >
           <button
-            data-collapse-toggle="navbar-default"
+            v-if="isHome"
             type="button"
-            class="w-10 h-10 items-center text-dark rounded-lg lg:hidden hover:bg-emerald-200 focus:outline-none dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
-            aria-expanded="false"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-black hover:bg-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 lg:hidden dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-500"
+            :aria-expanded="menuOpen"
+            aria-controls="site-sections"
+            aria-label="Toggle section menu"
+            @click="menuOpen = !menuOpen"
           >
             <font-awesome-icon
-              class="fill-current"
-              icon="fa-solid fa-bars"
-              beat
-              style="--fa-animation-duration: 5s; --fa-beat-scale: 1.5"
+              :icon="menuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"
+              class="h-4 w-4"
             />
           </button>
         </div>
 
-        <!-- Menú de navegación para pantallas grandes -->
         <div
-          v-show="$route.path === '/'"
-          class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-2"
-          id="navbar-default"
+          v-show="isHome"
+          id="site-sections"
+          class="w-full lg:flex lg:w-auto lg:items-center"
+          :class="menuOpen ? 'block' : 'hidden lg:block'"
         >
-          <ul
-            class="flex flex-col item font-medium lg:flex-row lg:space-x-8 lg:mt-0"
+          <p
+            class="mb-2 px-1 text-xs font-semibold uppercase tracking-wide text-emerald-900/70 lg:hidden dark:text-gray-400"
           >
-            <li>
+            Jump to section
+          </p>
+          <ul
+            class="flex flex-col gap-1 rounded-lg bg-emerald-200/70 p-2 lg:flex-row lg:items-center lg:gap-1 lg:bg-transparent lg:p-0 dark:bg-gray-700/80 lg:dark:bg-transparent"
+          >
+            <li v-for="section in sections" :key="section.id">
               <button
                 type="button"
-                class="block w-full py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                aria-current="page"
-                @click="scrollToSection('about')"
+                class="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-left text-sm font-medium transition-colors lg:justify-center lg:px-3 lg:py-2"
+                :class="
+                  activeSection === section.id
+                    ? 'bg-emerald-600 text-white shadow-sm dark:bg-emerald-500'
+                    : 'text-gray-800 hover:bg-emerald-100 dark:text-gray-200 dark:hover:bg-gray-600'
+                "
+                :aria-current="activeSection === section.id ? 'location' : undefined"
+                @click="goToSection(section.id)"
               >
-                About
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                class="block w-full py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                @click="scrollToSection('projects')"
-              >
-                Projects
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                class="block w-full py-2 pr-4 pl-3 text-center text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                @click="scrollToSection('skills')"
-              >
-                Skills
+                <span>{{ section.label }}</span>
+                <span class="text-xs font-normal opacity-70 lg:hidden">
+                  {{ section.hint }}
+                </span>
               </button>
             </li>
           </ul>
@@ -109,33 +97,96 @@
   </header>
 </template>
 
-<script>
+<script setup>
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { useRoute } from "vue-router";
 import { scrollToSection } from "@/utils/scrollToSection.js";
 
-export default {
-  name: "HeaderComponent",
-  data() {
-    return {
-      isDarkTheme:
-        localStorage.getItem("color-theme") === "dark" ||
-        (!localStorage.getItem("color-theme") &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches),
-    };
-  },
-  methods: {
-    scrollToSection,
-    toggleTheme() {
-      this.isDarkTheme = !this.isDarkTheme;
-      document.documentElement.classList.toggle("dark", this.isDarkTheme);
-      localStorage.setItem("color-theme", this.isDarkTheme ? "dark" : "light");
+/** Sections other than the intro — the brand link covers About / top */
+const sections = [
+  { id: "projects", label: "Projects", hint: "Work" },
+  { id: "skills", label: "Skills", hint: "Stack" },
+];
+
+const observedSectionIds = ["about", "projects", "skills"];
+
+const route = useRoute();
+const menuOpen = ref(false);
+const activeSection = ref("about");
+const isDarkTheme = ref(
+  localStorage.getItem("color-theme") === "dark" ||
+    (!localStorage.getItem("color-theme") &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+);
+
+const isHome = computed(() => route.path === "/" || route.path === "/home");
+
+let observer;
+
+function toggleTheme() {
+  isDarkTheme.value = !isDarkTheme.value;
+  document.documentElement.classList.toggle("dark", isDarkTheme.value);
+  localStorage.setItem("color-theme", isDarkTheme.value ? "dark" : "light");
+}
+
+function goToSection(id) {
+  menuOpen.value = false;
+  scrollToSection(id);
+  activeSection.value = id;
+}
+
+function goToTop(event) {
+  menuOpen.value = false;
+  if (!isHome.value) return;
+
+  event.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  activeSection.value = "about";
+}
+
+async function setupSectionObserver() {
+  observer?.disconnect();
+
+  if (!isHome.value || typeof IntersectionObserver === "undefined") return;
+
+  await nextTick();
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visible[0]?.target?.id) {
+        activeSection.value = visible[0].target.id;
+      }
     },
-  },
-  mounted() {
-    if (this.isDarkTheme) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    {
+      rootMargin: "-30% 0px -55% 0px",
+      threshold: [0.15, 0.35, 0.55],
     }
-  },
-};
+  );
+
+  observedSectionIds.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+}
+
+watch(
+  () => route.path,
+  () => {
+    menuOpen.value = false;
+    setupSectionObserver();
+  }
+);
+
+onMounted(() => {
+  document.documentElement.classList.toggle("dark", isDarkTheme.value);
+  setupSectionObserver();
+});
+
+onUnmounted(() => {
+  observer?.disconnect();
+});
 </script>
