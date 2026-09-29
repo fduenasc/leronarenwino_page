@@ -31,6 +31,19 @@
           <a
             rel="noopener noreferrer"
             target="_blank"
+            href="https://www.credly.com/users/francisco-duenas.49d3982c/badges/credly"
+            aria-label="Credly badges"
+          >
+            <font-awesome-icon
+              icon="fa-solid fa-award"
+              class="mx-2 h-8 w-8 fill-current text-black dark:text-white"
+            />
+          </a>
+        </li>
+        <li class="flex items-center justify-center">
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
             href="https://github.com/fduenasc"
             aria-label="GitHub"
           >
