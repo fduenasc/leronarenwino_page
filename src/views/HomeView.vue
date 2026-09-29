@@ -1,6 +1,7 @@
 <script setup>
 import AboutComponent from "../components/home/AboutComponent.vue";
 import ProjectsComponent from "../components/home/ProjectsComponent.vue";
+import CertificationsComponent from "../components/home/CertificationsComponent.vue";
 import SkillsComponent from "../components/home/SkillsComponent.vue";
 </script>
 
@@ -40,6 +41,7 @@ import SkillsComponent from "../components/home/SkillsComponent.vue";
       </svg>
     </div>
 
+    <CertificationsComponent />
     <SkillsComponent />
   </main>
 </template>
