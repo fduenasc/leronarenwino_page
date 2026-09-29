@@ -37,6 +37,7 @@ import {
   faArrowRight,
   faC,
   faCode,
+  faAward,
 } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
@@ -52,6 +53,7 @@ library.add(
   faArrowRight,
   faC,
   faCode,
+  faAward,
   faLinkedin,
   faGithub,
   faTwitter,
