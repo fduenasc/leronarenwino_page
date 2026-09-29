@@ -8,7 +8,7 @@ const store = useDataStore();
   <section
     id="skills"
     aria-labelledby="skills-heading"
-    class="bg-emerald-500 py-16 dark:bg-gray-900"
+    class="bg-emerald-500 pb-16 pt-4 dark:bg-gray-900"
   >
     <div class="py-16 px-4 mx-auto max-w-screen-xl lg:px-6">
       <div class="mx-auto mb-12 max-w-screen-md text-center lg:mb-16">
