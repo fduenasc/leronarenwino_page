@@ -105,10 +105,11 @@ import { scrollToSection } from "@/utils/scrollToSection.js";
 /** Sections other than the intro — the brand link covers About / top */
 const sections = [
   { id: "projects", label: "Projects", hint: "Work" },
+  { id: "certifications", label: "Certifications", hint: "Badges" },
   { id: "skills", label: "Skills", hint: "Stack" },
 ];
 
-const observedSectionIds = ["about", "projects", "skills"];
+const observedSectionIds = ["about", "projects", "certifications", "skills"];
 
 const route = useRoute();
 const menuOpen = ref(false);
