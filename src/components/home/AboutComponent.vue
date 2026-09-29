@@ -28,6 +28,7 @@
         <strong>microservices and reactive architectures</strong> on
         <strong>AWS, Azure, Kubernetes, and OpenShift</strong>, with a strong
         focus on clean architecture and production reliability.
+        <strong>AWS</strong> and <strong>Red Hat</strong> certified.
       </p>
       <p
         class="mb-4 text-base font-medium text-gray-800 lg:text-lg dark:text-gray-300"
@@ -45,26 +46,6 @@
           {{ item }}
         </li>
       </ul>
-      <p
-        class="mb-4 text-base font-medium text-gray-800 lg:text-lg dark:text-gray-300"
-      >
-        Certifications
-      </p>
-      <ul
-        class="mb-8 space-y-2 text-left text-base text-black sm:mx-auto sm:max-w-xl dark:text-gray-300"
-      >
-        <li
-          v-for="cert in certifications"
-          :key="cert"
-          class="flex items-start gap-2"
-        >
-          <span
-            class="mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full bg-emerald-600 dark:bg-emerald-400"
-            aria-hidden="true"
-          />
-          <span>{{ cert }}</span>
-        </li>
-      </ul>
       <div class="flex flex-wrap items-center justify-center gap-3">
         <button
           type="button"
@@ -76,9 +57,9 @@
         <button
           type="button"
           class="inline-flex items-center rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-          @click="scrollToSection('skills')"
+          @click="scrollToSection('certifications')"
         >
-          Skills
+          Certifications
         </button>
       </div>
     </div>
@@ -100,11 +81,5 @@ const knowledge = [
   "Azure",
   "Docker",
   "Python",
-];
-
-const certifications = [
-  "AWS Certified Cloud Practitioner",
-  "Red Hat Certified Developer in Cloud-native Applications",
-  "Red Hat Certified Specialist in Cloud-native Integration",
 ];
 </script>
