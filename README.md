@@ -20,6 +20,7 @@ Cloud-Native & Backend Developer specializing in designing and building scalable
 
 - **AWS Certified Cloud Practitioner**
 - **Red Hat Certified Developer in Cloud-native Applications**
+- **Red Hat Certified Specialist in Cloud-native Development**
 - **Red Hat Certified Specialist in Cloud-native Integration**
 
 ### Education & role
