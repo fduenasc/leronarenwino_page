@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Francisco Dueñas · Cloud-Native & Backend Developer",
+    "description": "Francisco Dueñas — Associate Consultant at Red Hat. Cloud-native & backend developer (Java, Quarkus, Spring). AWS Cloud Practitioner and Red Hat certified in cloud-native development and integration."
+  },
+  "nav": {
+    "primary": "Primary",
+    "tagline": "Cloud-native & Backend",
+    "jumpTo": "Jump to section",
+    "menu": "Toggle section menu",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme",
+    "lang": "Language",
+    "sections": {
+      "projects": "Projects",
+      "projectsHint": "Work",
+      "certifications": "Certifications",
+      "certificationsHint": "Badges",
+      "skills": "Skills",
+      "skillsHint": "Stack"
+    }
+  },
+  "about": {
+    "role": "Systems & Computer Engineer · Associate Consultant at Red Hat",
+    "bio": "Cloud-native & backend developer from the <strong>Universidad Nacional de Colombia</strong>, with over four years building scalable systems using <strong>Java, Quarkus, and Spring</strong>. I design <strong>microservices and reactive architectures</strong> on <strong>AWS, Azure, Kubernetes, and OpenShift</strong>, with a strong focus on clean architecture and production reliability. <strong>AWS</strong> and <strong>Red Hat</strong> certified.",
+    "knowledgeTitle": "Core knowledge",
+    "ctaProjects": "View projects",
+    "ctaCertifications": "Certifications",
+    "knowledge": {
+      "microservices": "Microservices",
+      "reactive": "Reactive systems"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected work across backend services, cloud platforms, and full-stack apps.",
+    "releasedOn": "Released on {date}",
+    "viewProject": "Look at the project"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Verified credentials on AWS and Red Hat.",
+    "viewAll": "View all on Credly",
+    "verify": "Verify on Credly",
+    "badgeAlt": "{name} badge",
+    "listLabel": "Certification badges"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Languages, frameworks, and cloud tools I use day to day."
+  },
+  "footer": {
+    "tagline": "Cloud-native & backend developer · Red Hat Associate Consultant.",
+    "contact": "Get in touch:"
+  }
+}

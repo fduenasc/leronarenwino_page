@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Francisco Dueñas · Desarrollador Cloud-Native & Backend",
+    "description": "Francisco Dueñas — Associate Consultant en Red Hat. Desarrollador cloud-native y backend (Java, Quarkus, Spring). Certificado AWS Cloud Practitioner y Red Hat en desarrollo e integración cloud-native."
+  },
+  "nav": {
+    "primary": "Principal",
+    "tagline": "Cloud-native & Backend",
+    "jumpTo": "Ir a la sección",
+    "menu": "Abrir menú de secciones",
+    "themeLight": "Cambiar a tema claro",
+    "themeDark": "Cambiar a tema oscuro",
+    "lang": "Idioma",
+    "sections": {
+      "projects": "Proyectos",
+      "projectsHint": "Trabajo",
+      "certifications": "Certificaciones",
+      "certificationsHint": "Badges",
+      "skills": "Habilidades",
+      "skillsHint": "Stack"
+    }
+  },
+  "about": {
+    "role": "Ingeniero de Sistemas y Computación · Associate Consultant en Red Hat",
+    "bio": "Desarrollador cloud-native y backend de la <strong>Universidad Nacional de Colombia</strong>, con más de cuatro años creando sistemas escalables con <strong>Java, Quarkus y Spring</strong>. Diseño <strong>microservicios y arquitecturas reactivas</strong> en <strong>AWS, Azure, Kubernetes y OpenShift</strong>, con foco en clean architecture y confiabilidad en producción. Certificado en <strong>AWS</strong> y <strong>Red Hat</strong>.",
+    "knowledgeTitle": "Conocimientos clave",
+    "ctaProjects": "Ver proyectos",
+    "ctaCertifications": "Certificaciones",
+    "knowledge": {
+      "microservices": "Microservicios",
+      "reactive": "Sistemas reactivos"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Trabajo seleccionado en servicios backend, plataformas cloud y apps full-stack.",
+    "releasedOn": "Publicado el {date}",
+    "viewProject": "Ver el proyecto"
+  },
+  "certifications": {
+    "title": "Certificaciones",
+    "subtitle": "Credenciales verificadas en AWS y Red Hat.",
+    "viewAll": "Ver todas en Credly",
+    "verify": "Verificar en Credly",
+    "badgeAlt": "Badge de {name}",
+    "listLabel": "Badges de certificación"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "subtitle": "Lenguajes, frameworks y herramientas cloud que uso día a día."
+  },
+  "footer": {
+    "tagline": "Desarrollador cloud-native y backend · Associate Consultant en Red Hat.",
+    "contact": "Contacto:"
+  }
+}
