@@ -16,24 +16,16 @@
       <p
         class="mb-4 text-lg font-medium text-emerald-800 lg:text-2xl dark:text-emerald-300"
       >
-        Systems &amp; Computer Engineer · Associate Consultant at Red Hat
+        {{ t("about.role") }}
       </p>
       <p
         class="mb-6 text-lg text-black lg:text-xl sm:px-12 xl:px-32 dark:text-gray-400"
-      >
-        Cloud-native &amp; backend developer from the
-        <strong>Universidad Nacional de Colombia</strong>, with over four years
-        building scalable systems using
-        <strong>Java, Quarkus, and Spring</strong>. I design
-        <strong>microservices and reactive architectures</strong> on
-        <strong>AWS, Azure, Kubernetes, and OpenShift</strong>, with a strong
-        focus on clean architecture and production reliability.
-        <strong>AWS</strong> and <strong>Red Hat</strong> certified.
-      </p>
+        v-html="t('about.bio')"
+      />
       <p
         class="mb-4 text-base font-medium text-gray-800 lg:text-lg dark:text-gray-300"
       >
-        Core knowledge
+        {{ t("about.knowledgeTitle") }}
       </p>
       <ul
         class="mb-8 flex flex-wrap items-center justify-center gap-2 text-sm text-gray-700 sm:px-8 dark:text-gray-300"
@@ -52,14 +44,14 @@
           class="inline-flex items-center rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 focus:outline-none focus:ring-4 focus:ring-emerald-300 dark:bg-emerald-500 dark:hover:bg-emerald-600 dark:focus:ring-emerald-800"
           @click="scrollToSection('projects')"
         >
-          View projects
+          {{ t("about.ctaProjects") }}
         </button>
         <button
           type="button"
           class="inline-flex items-center rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
           @click="scrollToSection('certifications')"
         >
-          Certifications
+          {{ t("about.ctaCertifications") }}
         </button>
       </div>
     </div>
@@ -67,19 +59,23 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 import { scrollToSection } from "@/utils/scrollToSection.js";
 
-const knowledge = [
+const { t } = useI18n();
+
+const knowledge = computed(() => [
   "Java",
   "Quarkus",
   "Spring",
-  "Microservices",
-  "Reactive systems",
+  t("about.knowledge.microservices"),
+  t("about.knowledge.reactive"),
   "Kubernetes",
   "OpenShift",
   "AWS",
   "Azure",
   "Docker",
   "Python",
-];
+]);
 </script>
