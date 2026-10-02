@@ -1,7 +1,21 @@
 <script setup>
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 import { useDataStore } from "@/stores/index.js";
 
+const { t, locale } = useI18n();
 const store = useDataStore();
+
+const dateLocale = computed(() => (locale.value === "es" ? "es-CO" : "en-US"));
+
+function formatReleaseDate(timestamp) {
+  return timestamp.toDate().toLocaleDateString(dateLocale.value, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
 function redirectTo(url) {
   window.open(url, "_blank");
@@ -14,51 +28,47 @@ function redirectTo(url) {
     aria-labelledby="projects-heading"
     class="bg-transparent py-16 dark:bg-transparent"
   >
-    <div class="py-16 px-4 mx-auto max-w-screen-xl lg:px-6">
+    <div class="mx-auto max-w-screen-xl px-4 py-16 lg:px-6">
       <div class="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">
         <h2
           id="projects-heading"
           class="my-4 text-4xl font-medium leading-none text-black md:text-5xl lg:text-6xl dark:text-white"
         >
-          Projects
+          {{ t("projects.title") }}
         </h2>
         <p class="font-light text-black sm:text-xl dark:text-gray-400">
-          Selected work across backend services, cloud platforms, and full-stack
-          apps.
+          {{ t("projects.subtitle") }}
         </p>
       </div>
       <div
-        class="w-full p-4 bg-emerald-500 border border-gray-200 rounded-lg shadow-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+        class="w-full rounded-lg border border-gray-200 bg-emerald-500 p-4 shadow-2xl sm:p-8 dark:border-gray-700 dark:bg-gray-800"
       >
         <ol class="relative border-l border-indigo-200 dark:border-gray-700">
           <template v-for="project of store.projects" :key="project.id">
             <li class="mb-10 ml-4">
               <div
-                class="absolute w-3 h-3 bg-emerald-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
+                class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-emerald-200 dark:border-gray-900 dark:bg-gray-700"
               ></div>
               <time
                 class="mb-1 text-sm font-normal leading-none text-gray-100 dark:text-gray-500"
-                >Released on
-                {{
-                  project.date_published.toDate().toLocaleDateString("en-US", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
-                }}</time
               >
+                {{
+                  t("projects.releasedOn", {
+                    date: formatReleaseDate(project.date_published),
+                  })
+                }}
+              </time>
               <h3
-                class="text-2xl font-semibold text-gray-900 dark:text-white mb-2"
+                class="mb-2 text-2xl font-semibold text-gray-900 dark:text-white"
               >
                 {{ project.name
                 }}<span
-                  class="hidden md:inline bg-blue-100 text-emerald-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-emerald-900 dark:text-emerald-300 ml-3"
+                  class="ml-3 mr-2 hidden rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-emerald-800 md:inline dark:bg-emerald-900 dark:text-emerald-300"
                   >{{ project.development }}</span
                 >
               </h3>
               <span
-                class="inline md:hidden bg-blue-100 text-emerald-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-emerald-900 dark:text-emerald-300"
+                class="inline rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-emerald-800 md:hidden dark:bg-emerald-900 dark:text-emerald-300"
                 >{{ project.development }}</span
               >
               <p
@@ -67,21 +77,22 @@ function redirectTo(url) {
                 {{ project.description }}
               </p>
               <div
-                class="flex flex-col md:flex-row items-start md:items-center md:space-x-4 space-y-2 md:space-y-0"
+                class="flex flex-col items-start space-y-2 md:flex-row md:items-center md:space-x-4 md:space-y-0"
               >
                 <template
                   v-if="
                     project.link_github !== '' &&
                     project.hasOwnProperty('link_github')
                   "
-                  ><button
+                >
+                  <button
                     type="button"
+                    class="inline-flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 focus:text-blue-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
                     @click="redirectTo(project.link_github)"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                   >
                     <font-awesome-icon
                       icon="fa-brands fa-github"
-                      class="w-4 h-4 fill-current text-black dark:text-white mr-2"
+                      class="mr-2 h-4 w-4 fill-current text-black dark:text-white"
                       beat
                       style="--fa-animation-duration: 5s"
                     />
@@ -96,10 +107,10 @@ function redirectTo(url) {
                 >
                   <button
                     type="button"
+                    class="inline-flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 focus:text-blue-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
                     @click="redirectTo(project.link_website)"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                   >
-                    Look at the project
+                    {{ t("projects.viewProject") }}
                     <font-awesome-icon
                       class="ml-2"
                       icon="fa-solid fa-arrow-right"
