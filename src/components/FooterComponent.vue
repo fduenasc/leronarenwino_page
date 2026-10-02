@@ -8,9 +8,11 @@
         Francisco Dueñas
       </router-link>
       <p class="my-4 text-xl text-gray-800 dark:text-gray-200">
-        Cloud-native &amp; backend developer · Red Hat Associate Consultant.
+        {{ t("footer.tagline") }}
       </p>
-      <p class="text-md my-4 text-gray-800 dark:text-gray-200">Get in touch:</p>
+      <p class="text-md my-4 text-gray-800 dark:text-gray-200">
+        {{ t("footer.contact") }}
+      </p>
       <ul
         class="flex flex-wrap items-center justify-center text-gray-900 dark:text-white"
       >
@@ -55,7 +57,10 @@
 
 <script setup>
 import { onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 import Tooltip from "flowbite/src/components/tooltip.js";
+
+const { t } = useI18n();
 
 const socialLinks = [
   {
