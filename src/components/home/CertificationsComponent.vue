@@ -10,10 +10,10 @@
           id="certifications-heading"
           class="my-4 text-4xl font-medium leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
         >
-          Certifications
+          {{ t("certifications.title") }}
         </h2>
         <p class="mb-5 font-light text-black sm:text-xl dark:text-gray-400">
-          Verified credentials on AWS and Red Hat.
+          {{ t("certifications.subtitle") }}
         </p>
         <a
           href="https://www.credly.com/users/francisco-duenas.49d3982c/badges/credly"
@@ -22,7 +22,7 @@
           class="inline-flex items-center rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-gray-900 shadow-sm transition-colors hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-emerald-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600"
         >
           <font-awesome-icon icon="fa-solid fa-award" class="mr-2 h-4 w-4" />
-          View all on Credly
+          {{ t("certifications.viewAll") }}
           <font-awesome-icon
             icon="fa-solid fa-arrow-right"
             class="ml-2 h-3 w-3"
@@ -32,7 +32,7 @@
 
       <ul
         class="mx-auto grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
-        aria-label="Certification badges"
+        :aria-label="t('certifications.listLabel')"
       >
         <li v-for="cert in certifications" :key="cert.id">
           <a
@@ -43,7 +43,7 @@
           >
             <img
               :src="cert.image"
-              :alt="`${cert.name} badge`"
+              :alt="t('certifications.badgeAlt', { name: cert.name })"
               width="140"
               height="140"
               loading="lazy"
@@ -63,7 +63,7 @@
             <span
               class="inline-flex items-center text-xs font-medium text-emerald-800 dark:text-emerald-300"
             >
-              Verify on Credly
+              {{ t("certifications.verify") }}
               <font-awesome-icon
                 icon="fa-solid fa-arrow-right"
                 class="ml-1.5 h-3 w-3"
@@ -77,6 +77,10 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
 const certifications = [
   {
     id: "5c178799-4411-4bac-b0e6-dd8b4b1f38ca",
