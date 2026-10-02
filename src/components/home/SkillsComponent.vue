@@ -1,6 +1,8 @@
 <script setup>
+import { useI18n } from "vue-i18n";
 import { useDataStore } from "@/stores/index.js";
 
+const { t } = useI18n();
 const store = useDataStore();
 </script>
 
@@ -10,16 +12,16 @@ const store = useDataStore();
     aria-labelledby="skills-heading"
     class="bg-emerald-500 pb-16 pt-4 dark:bg-gray-900"
   >
-    <div class="py-16 px-4 mx-auto max-w-screen-xl lg:px-6">
+    <div class="mx-auto max-w-screen-xl px-4 py-16 lg:px-6">
       <div class="mx-auto mb-12 max-w-screen-md text-center lg:mb-16">
         <h2
           id="skills-heading"
           class="my-4 text-4xl font-medium leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
         >
-          Skills
+          {{ t("skills.title") }}
         </h2>
         <p class="mb-5 font-light text-black sm:text-xl dark:text-gray-400">
-          Languages, frameworks, and cloud tools I use day to day.
+          {{ t("skills.subtitle") }}
         </p>
       </div>
       
